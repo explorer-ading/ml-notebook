@@ -10,3 +10,8 @@ to-do-list
 -	basic machine learning algorithm
 
 
+## reference
+
+[mathjax](https://www.mathjax.org/)
+
+
