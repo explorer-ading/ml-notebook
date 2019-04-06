@@ -9,6 +9,9 @@
 * [wiki](https://github.com/sympy/sympy/wiki)
 
 
+
 # Scipy
 * [scipy-tutorial](https://www.tau.ac.il/~kineret/amit/scipy_tutorial/)
+
+
 
