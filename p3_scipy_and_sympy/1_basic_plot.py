@@ -47,3 +47,15 @@ plt.scatter(x, y4, color='blue', linewidth=1.5, linestyle='-', marker='.', label
 plt.legend()
 
 
+# https://stackoverflow.com/questions/14058340/adding-noise-to-a-signal-in-python
+# Add gauss noise
+pure = np.linspace(-1, 1, 100)
+noise = np.random.normal(0, 1, pure.shape)
+signal = pure + noise
+plt.plot(noise)
+print(np.std(signal))
+print(np.mean(signal))
+
+
+
+
