@@ -48,6 +48,29 @@ print("R2 Score:", metrics.r2_score(y_test, pred))
 print("Mean Squared Error: " , metrics.mean_squared_error(y_test, pred) )
 
 
+import pickle
+
+filename = 'axsvm.native'
+
+def serialize_model():
+    serialized = pickle.dumps(model)
+    with open(filename,'wb') as file_object:
+            file_object.write(serialized)
+    
+def unserialize_model():
+    with open(filename,'rb') as file_object:
+        raw_data = file_object.read()
+
+    clf = pickle.loads(raw_data)
+    clf.predict(X_test)
+    print("SVC:\n%0.3f" % (model.score(X_test, y_test)))
+
+
+#serialize_model()
+
+unserialize_model()
+
+
 ## FIXME: AUC code is only available for breast cancer dataset .
 #y_pred_proba = model.predict_proba(X_test)[:,1]
 #fpr, tpr, _ = metrics.roc_curve(y_test, y_pred_proba)
