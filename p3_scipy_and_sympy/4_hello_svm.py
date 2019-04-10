@@ -34,8 +34,12 @@ print(X_test.shape, y_test.shape)
 #from sklearn.linear_model import LogisticRegression
 #model = LogisticRegression(penalty='l2', C=0.1)
 
+# https://stackoverflow.com/questions/15111408/how-does-sklearn-svm-svcs-function-predict-proba-work-internally
+#       probability=True
 # Create a classifier: a support vector classifier
-model = svm.SVC(gamma=0.001)
+model = svm.SVC(gamma=0.001, probability=True)
+#model = svm.SVR(gamma='scale', C=1.0, epsilon=0.2)
+
 model.fit(X_train,y_train)
 pred = model.predict(X_test)
 
@@ -46,6 +50,20 @@ print("Classification report for classifier %s:\n%s\n"
 
 print("R2 Score:", metrics.r2_score(y_test, pred))
 print("Mean Squared Error: " , metrics.mean_squared_error(y_test, pred) )
+
+
+## TODO: AUC code is only available for regression .
+# https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html#sphx-glr-auto-examples-model-selection-plot-roc-py
+
+y_pred_proba = model.predict_proba(X_test)[:,1]
+fpr, tpr, _ = metrics.roc_curve(y_test, y_pred_proba)
+auc = metrics.roc_auc_score(y_test, pred)
+plt.plot(fpr, tpr, label="auc="+str(auc) )
+plt.legend()
+plt.show()
+
+
+
 
 
 import pickle
@@ -67,16 +85,7 @@ def unserialize_model():
 
 
 #serialize_model()
+#unserialize_model()
 
-unserialize_model()
-
-
-## FIXME: AUC code is only available for breast cancer dataset .
-#y_pred_proba = model.predict_proba(X_test)[:,1]
-#fpr, tpr, _ = metrics.roc_curve(y_test, y_pred_proba)
-#auc = metrics.roc_auc_score(y_test, pred)
-#plt.plot(fpr, tpr, label="auc="+str(auc) )
-#plt.legend()
-#plt.show()
 
 
