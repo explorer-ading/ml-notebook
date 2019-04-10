@@ -63,6 +63,9 @@ plt.legend()
 plt.show()
 
 
+## Other metrics for classification 
+# https://scikit-learn.org/stable/modules/model_evaluation.html#classification-metrics
+
 
 
 
