@@ -5,6 +5,16 @@
 
 import numpy as np
 
+
+def svd_test():
+    # https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html
+    a = np.random.randn(9, 6) + 1j*np.random.randn(9, 6)
+    print(a.shape, b.shape)             # ((9,6))
+    
+    u, s, vh = np.linalg.svd(a, full_matrices=True)
+    print(u.shape, s.shape, vh.shape)   # ((9, 6), (6,), (6, 6))
+
+
 def lgcov_test():
     # print(np.cov.__doc__)
     # https://docs.scipy.org/doc/numpy/reference/generated/numpy.cov.html
