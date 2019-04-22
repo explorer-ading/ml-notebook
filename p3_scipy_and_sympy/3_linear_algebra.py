@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # https://en.wikipedia.org/wiki/Linear_algebra
+# https://www.tutorialspoint.com/tensorflow/tensorflow_mathematical_foundations.htm
 
 import numpy as np
 
