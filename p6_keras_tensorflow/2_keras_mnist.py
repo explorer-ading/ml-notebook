@@ -41,9 +41,9 @@ model.compile(loss = 'categorical_crossentropy', optimizer = 'adam', metrics = [
 model.fit(X_train, Y_train, batch_size = 32, epochs = 10, verbose = 1)
 
 # Evaluate your performance in one line
-loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)
+loss_and_metrics = model.evaluate(X_test, y_test, batch_size=128)
 
 # generate predictions on new data
-classes = model.predict(x_test, batch_size=128)
+classes = model.predict(X_test, batch_size=128)
 
 
